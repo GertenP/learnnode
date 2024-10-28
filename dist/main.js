@@ -1,0 +1,1 @@
+(()=>{"use strict";const l={hello(){console.log("Hello es module")}},o=require("./common.js");l.hello(),o.hello()})();
