@@ -1,7 +1,6 @@
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-
-
+ 
 export default {
   entry: './src/index.js',
   output: {
@@ -15,9 +14,21 @@ export default {
     compress: true,
     port: 9000,
   },
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.scss$/i,
+        use: ["style-loader", "css-loader", "sass-loader"],
+      }
+    ],
+  },
   plugins: [
     new HtmlWebpackPlugin({
-        template: './src/index.html'}
-    )
+        template: './src/index.html'
+    })
   ],
 };
