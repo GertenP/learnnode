@@ -1,6 +1,6 @@
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
- 
+
 export default {
   entry: './src/index.js',
   output: {
@@ -23,24 +23,34 @@ export default {
       {
         test: /\.scss$/i,
         use: ["style-loader",
-           "css-loader",
-            {loader: "sass-loader",
-              options: {
-                sassOptions: {
-                  quietDeps: true
-                }
+          "css-loader",
+          {
+            loader: "sass-loader",
+            options: {
+              sassOptions: {
+                quietDeps: true
               }
-            }],
+            }
+          }],
+      },
+      {
+        test: /\.njk$/,
+        use: [
+          {
+            loader: 'simple-nunjucks-loader',
+            options: {}
+          }
+        ],
       }
-    ],
+    ]
   },
   plugins: [
     new HtmlWebpackPlugin({
-        template: './src/index.html'
+      template: './src/index.njk'
     }),
     new HtmlWebpackPlugin({
       filename: 'about.html',
-      template: './src/about.html'
-  })
+      template: './src/about.njk'
+    })
   ],
 };
