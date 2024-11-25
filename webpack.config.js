@@ -1,7 +1,15 @@
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-export default {
+// AInult asi mis tagastab promise siis saab .then kasutada
+// ALATI PANE AWAIT, KUI PROMISE
+export default async () => {
+
+  let response = await fetch("https://rickandmortyapi.com/api/character/");
+  let result = await response.json();
+  let characters = result.results
+
+  return {
   entry: './src/index.js',
   output: {
     filename: 'main.js',
@@ -49,6 +57,7 @@ export default {
       template: './src/index.njk',
       templateParameters: {
         name: "Maido",
+        characters, //characters: characters,
       }
     }),
     new HtmlWebpackPlugin({
@@ -56,4 +65,4 @@ export default {
       template: './src/about.njk'
     })
   ],
-};
+}};
