@@ -46,7 +46,10 @@ export default {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.njk'
+      template: './src/index.njk',
+      templateParameters: {
+        name: "Maido",
+      }
     }),
     new HtmlWebpackPlugin({
       filename: 'about.html',
