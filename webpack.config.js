@@ -8,7 +8,17 @@ export default async () => {
   let response = await fetch("https://rickandmortyapi.com/api/character/");
   let result = await response.json();
   let characters = result.results
-
+  let pages = [];
+  characters.forEach(character => {
+    let page = new HtmlWebpackPlugin({
+      template: './src/character.njk',
+      filename: 'character_' + character.id + '.html',
+      templateParameters: {
+        character, //characters: characters,
+      }
+    });
+    pages.push(page);
+  });
   return {
   entry: './src/index.js',
   output: {
@@ -63,6 +73,7 @@ export default async () => {
     new HtmlWebpackPlugin({
       filename: 'about.html',
       template: './src/about.njk'
-    })
+    }),
+    ...pages
   ],
 }};
