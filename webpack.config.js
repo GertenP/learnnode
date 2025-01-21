@@ -1,8 +1,7 @@
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import { VueLoaderPlugin } from 'vue-loader';
 
-// AInult asi mis tagastab promise siis saab .then kasutada
-// ALATI PANE AWAIT, KUI PROMISE
 export default {
   entry: './src/index.js',
   output: {
@@ -24,8 +23,9 @@ export default {
       },
       {
         test: /\.scss$/i,
-        use: ["style-loader",
-          "css-loader",
+
+        use: [
+          "style-loader", "css-loader",
           {
             loader: "sass-loader",
             options: {
@@ -33,13 +33,19 @@ export default {
                 quietDeps: true
               }
             }
-          }],
+          }
+        ]
       },
-    ]
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
+    new VueLoaderPlugin(),
   ],
 };

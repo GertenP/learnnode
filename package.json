@@ -1,5 +1,5 @@
 {
-  "name": "learnode",
+  "name": "learnnode",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,7 @@
     "dev": "webpack --mode=development",
     "build": "webpack --mode=production",
     "start": "webpack serve --mode=development",
-    "deploy": "npm run build && npx surge ./dist andreasonraigeltgay.surge.sh"
+    "deploy": "npm run build && surge ./dist ultra-shoes.surge.sh"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +21,9 @@
     "sass-loader": "^16.0.3",
     "style-loader": "^4.0.0",
     "surge": "^0.24.6",
+    "vue": "^3.5.13",
+    "vue-loader": "^17.4.2",
+    "vue-template-compiler": "^2.7.16",
     "webpack": "^5.96.1",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.1.0"
