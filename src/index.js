@@ -2,7 +2,7 @@ import './style.scss';
 import { createApp } from 'vue';
 import App from './App.vue'
 
-import {createWebHashHistory, createMemoryHistory, createRouter } from 'vue-router';
+import {createWebHashHistory, createMemoryHistory, createRouter, createWebHistory } from 'vue-router';
 import ToDo from './pages/ToDo.vue';
 import Modals from './pages/Modals.vue';
 
@@ -12,7 +12,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes,
 });
 
