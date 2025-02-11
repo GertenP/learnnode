@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue';
-import Modal from './components/Modal.vue';
-import ImgModal from './components/imgModal.vue';
+import Modal from '../components/Modal.vue';
+import ImgModal from '../components/imgModal.vue';
 
 let modalActive = ref(false);
 let modalActive2 = ref(false);
@@ -30,7 +30,7 @@ let modalActive3 = ref(false);
 
   <ImgModal :active="modalActive" @close="modalActive = false" url="https://picsum.photos/seed/gerten/600/600">
   </ImgModal>
-  <Modal :active="modalActive3" @close="modalActive = false">
+  <Modal :active="modalActive3" @close="modalActive3 = false">
     <div class="notification is-link">
       <button @click="modalActive3 = false" class="delete"></button>
       Primar lorem ipsum dolor sit amet, consectetur adipiscing elit lorem ipsum
