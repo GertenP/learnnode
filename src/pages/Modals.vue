@@ -19,14 +19,12 @@ let modalActive3 = ref(false);
 </script>
 
 <template>
-  <div class="container">
     <div class="buttons">
       <button class="button is-primary" @click="modalActive = true">Modal Active</button>
       <button class="button is-link" @click="modalActive2 = true">Modal2 Active</button>
       <button class="button is-danger is-rounded" @click="modalActive3 = true">Modal3 Active</button>
 
     </div>
-  </div>
 
   <ImgModal :active="modalActive" @close="modalActive = false" url="https://picsum.photos/seed/gerten/600/600">
   </ImgModal>

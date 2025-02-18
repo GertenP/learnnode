@@ -8,7 +8,6 @@ document.body.addEventListener('keydown', event => {
     }
 })
 </script>
-<!-- <img :src="url" alt=""> -->
 
 <template>
     <div class="modal" :class="{ 'is-active': active }">
